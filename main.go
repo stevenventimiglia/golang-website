@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -36,7 +37,13 @@ func serveWeb() {
 	http.HandleFunc("/img/", serveResource)
 
 	http.Handle("/", route)
-	http.ListenAndServe(":8080", nil)
+
+	portNumber := "8088"
+	fmt.Println("------------------------------------------------------------")
+	log.Println("Server started at http://localhost:" + portNumber)
+	fmt.Println("------------------------------------------------------------")
+	http.ListenAndServe(":"+portNumber, nil)
+
 }
 
 func serveContent(w http.ResponseWriter, r *http.Request) {
