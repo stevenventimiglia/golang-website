@@ -1,0 +1,11 @@
+.note {
+  display: inline-block;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.35em;
+  padding: 0 $space/4;
+  margin-left: $space/2;
+  background: $green;
+  @include roundOdd($space/4, 0, 0, $space/4);
+}

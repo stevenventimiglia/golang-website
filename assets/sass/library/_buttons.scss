@@ -1,0 +1,29 @@
+.up {
+  opacity: 0;
+  z-index: 9999;
+  position: fixed;
+  bottom: 0;
+  right: $space;
+  margin-bottom: -50px;
+  background: #333;
+  @include trans(.5s);
+  @include roundOdd($space/4, $space/4, 0, 0);
+  a {
+    display: block;
+    color: $light;
+    font-weight: 600;
+    text-decoration: none;
+    padding: $space/2;
+    @include trans(.5s);
+    &:hover {
+      color: #fff;
+    }
+  }
+  &.show {
+    opacity: 0.85;
+    margin-bottom: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Scripted by Steven E. Ventimiglia
+# Copyright 2016 ABLE-UI, LLC
+# Distributed on Github
+
+section=$1
+
+# Directory Structure
+dir_bin="assets/bin/"
+dir_css="assets/css/"
+dir_inc="${dir_bin}inc/"
+dir_bak="${dir_bin}.backup/"
+
+# Theme Constants
+theme_head="private_head"
+theme_foot="private_foot"
+
+# User Info
+user=$(echo "$(whoami)" | tr '[:upper:]' '[:lower:]')
+
+# START: Static-Unity
+if  [ "$1" = "" ]; then
+	printf "\nPlease name the section you are creating. (Ex. 'source .mix ${user}')\n\n"
+else
+	if  [ "$2" = "--kill" ]; then
+		read -p "Are you sure that you want to remove the entire file set for '${section}' (y/N)? " answer
+		case ${answer:0:1} in
+	    y|Y )
+				rm -f ${section}.html ${dir_inc}${section}.htm ${dir_css}${section}.scss ${dir_css}${section}.css | printf "\nRemoved the files for '${section}'.\n\n"
+	    ;;
+	    * )
+      	printf "\nThrough the miracle of \"oh, wait...\", you've decided to retain the file set for '${section}'.\n\n"
+	    ;;
+		esac
+	else
+		# Check for Existing Sections
+		if [ ! -f ${dir_inc}${section}.htm ]; then
+			if [ ! -f ${dir_css}${section}.scss ]; then
+				# Add CSS
+				cp ${dir_bin}[SECTION_NAME].scss ${dir_css}${section}.scss | echo "#${section} h1{text-transform:capitalize;}" > ${dir_css}${section}.css | cp ${dir_css}${section}.css ${dir_css}${section}.css.bak
+			fi
+			# Generate Page
+			cat ${dir_bin}[SECTION_NAME].htm >> ${dir_inc}${section}.htm | cat ${dir_inc}${theme_head}.htm ${dir_inc}${section}.htm ${dir_inc}${theme_foot}.htm > ${section}.html
+			# Theme Section
+			sed -i.bak -e "s/\[SECTION_NAME\]/${section}/g" ${dir_inc}${section}.htm
+			sed -i.bak -e "s/\[SECTION_NAME\]/${section}/g" ${dir_css}${section}.scss
+			sed -i.bak -e "s/\[SECTION_NAME\]/${section}/g" ${section}.html
+			mv ${section}.html.bak ${dir_inc}${section}.htm.bak ${dir_css}${section}.scss.bak ${dir_css}${section}.css.bak ${dir_bak}
+			printf "\nGenerated the files for '${section}'.\n\n"
+		else
+			# Update Page
+			cat ${dir_inc}${theme_head}.htm ${dir_inc}${section}.htm ${dir_inc}${theme_foot}.htm > ${section}.html | printf "\nUpdated the files for '${section}'.\n\n"
+		fi
+	fi
+fi
+# END: Static-Unity

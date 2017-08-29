@@ -1,0 +1,7 @@
+.error {
+	color: #fff;
+	background: #cc6666;
+	padding: 10px;
+	@include roundEven(4px);
+	border: 2px solid rgba(0,0,0,0.25);
+}

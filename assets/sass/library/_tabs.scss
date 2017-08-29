@@ -1,0 +1,53 @@
+.tabs {
+	ul {
+		li {
+			float: left;
+			&:first-child {
+				a {
+					margin-left: 0;
+				}
+			}
+			a {
+				display: inline-block;
+				color: #fff;
+				line-height: 1.85;
+				@include roundOdd(6px,6px,0,0);
+				padding: $space/6 $space/2;
+				margin-left: $space/2;
+				background: $primary;
+				opacity: 0.65;
+				&::before {
+					padding-right: $space/4;
+				}
+				&:hover, &:visited:hover {
+					color: #fff;
+					opacity: 1;
+					&.active {
+						color: $primary;
+						background: $gray;
+					}
+				}
+				&.active {
+					color: $primary;
+					background: $gray;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.stage {
+		> div:nth-child(n+2) {
+			display: none;
+		}
+		.advanced {
+			display: block;
+		}
+	}
+}
+
+.tabSet {
+  margin-top: 0;
+  li {
+    display: none;
+  }
+}

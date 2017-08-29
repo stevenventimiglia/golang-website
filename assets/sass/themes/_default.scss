@@ -1,0 +1,59 @@
+// ========================
+//  Color Theme
+// ========================
+
+@mixin colorTheme($color) {
+	background: $color;
+	&.light {
+		background: lighten($color, $tone);
+	}
+	&.dark {
+		background: darken($color, $tone);
+	}
+}
+
+#colors {
+	.color {
+		position: relative;
+		float: left;
+		width: 50%;
+		padding-top: 15%;
+		border: 5px solid #fff;
+		.swatch {
+			position: absolute;
+			width: (100%)/3;
+			top: 0;
+			bottom: 0;
+			&.light {
+				left: 0;
+			}
+			&.dark {
+				right: 0;
+			}
+		}
+	}
+}
+.gray {
+	@include colorTheme($color: $gray);
+}
+.blue {
+	@include colorTheme($color: $blue);
+}
+.purple {
+	@include colorTheme($color: $purple);
+}
+.pink {
+	@include colorTheme($color: $pink);
+}
+.red {
+	@include colorTheme($color: $red);
+}
+.orange {
+	@include colorTheme($color: $orange);
+}
+.yellow {
+	@include colorTheme($color: $yellow);
+}
+.green {
+	@include colorTheme($color: $green);
+}

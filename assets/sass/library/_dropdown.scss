@@ -1,0 +1,43 @@
+.dropdown {
+  position: relative;
+  font-size: 1.25em;
+  overflow: hidden;
+  border: 1px solid $primary;
+  @include roundEven(6px);
+  -moz-box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1);/*FF 3.5+*/
+  -webkit-box-shadow: inset 2px 2px 0px #rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+  margin-top: $space/2;
+	background: #fff;
+  &:after {
+    position: absolute;
+    content: ' ';
+    color: $light;
+    bottom: 0;
+    right: 0;
+    background: $primary url(#{$path-image}/dropArrow.png) no-repeat right;
+    width: 36px;
+    height: 36px;
+    @include roundOdd(0,6px,0,6px);
+    pointer-events: none;
+    cursor: pointer;
+  }
+  select {
+    display: inline-block;
+    background: transparent;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    option {
+      padding: $space/4 $space/2;
+      &:first-child {
+        font-weight: bold;
+        padding-bottom: $space/2;
+      }
+    }
+  }
+}

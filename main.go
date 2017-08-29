@@ -8,6 +8,7 @@ import (
 	"os"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -19,6 +20,7 @@ func main() {
 type defaultContext struct {
 	Title       string
 	Section     string
+	Year        int
 	ErrorMsgs   string
 	SuccessMsgs string
 }
@@ -49,6 +51,7 @@ func serveWeb() {
 func serveContent(w http.ResponseWriter, r *http.Request) {
 	urlParams := mux.Vars(r)
 	pageAlias := urlParams["pageAlias"]
+	t := time.Now()
 
 	if pageAlias == "" {
 		pageAlias = "index"
@@ -57,6 +60,7 @@ func serveContent(w http.ResponseWriter, r *http.Request) {
 	context := defaultContext{}
 	context.Title = strings.Title(pageAlias)
 	context.Section = pageAlias
+	context.Year = t.Year()
 	context.ErrorMsgs = ""
 	context.SuccessMsgs = ""
 

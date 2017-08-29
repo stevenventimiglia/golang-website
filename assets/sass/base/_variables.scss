@@ -1,0 +1,59 @@
+// ========================
+//  General
+// ========================
+
+$space: 20px;
+$path-image: "../img";
+$path-font: "fonts";
+
+// ========================
+//  Colors
+// ========================
+
+$tone: 25;
+
+$primary: lighten(desaturate(#00A9D3, 60),20);
+
+$blue: $primary;
+$light-blue: lighten($blue, $tone);
+$dark-blue: darken($blue, $tone);
+
+$purple: adjust-hue($primary,(20*4.5));
+$light-purple: lighten($purple, $tone);
+$dark-purple: darken($purple, $tone);
+
+$pink: adjust-hue($primary,(20*6.5));
+$light-pink: lighten($pink, $tone);
+$dark-pink: darken($pink, $tone);
+
+$red: adjust-hue($primary,(20*8));
+$light-red: lighten($red, $tone);
+$dark-red: darken($red, $tone);
+
+$orange: adjust-hue($primary,(20*10));
+$light-orange: lighten($orange, $tone);
+$dark-orange: darken($orange, $tone);
+
+$yellow: adjust-hue($primary,(20*11));
+$light-yellow: lighten($yellow, $tone);
+$dark-yellow: darken($yellow, $tone);
+
+$green: adjust-hue($primary,(20*14));
+$light-green: lighten($green, $tone);
+$dark-green: darken($green, $tone);
+
+$gray: #999;
+$light: lighten($gray, $tone);
+$dark: darken($gray, $tone);
+
+// ========================
+//  Switches
+// ========================
+
+$showcaseToggle: 1;
+$metaToggle: 0;
+
+@if $metaToggle == 1 {
+	$path-image: "assets/img";
+	$path-font: "assets/css/fonts";
+}

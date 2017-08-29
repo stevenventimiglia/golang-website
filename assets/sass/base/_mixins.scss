@@ -1,0 +1,66 @@
+// ========================
+//  Mixins
+// ========================
+
+@mixin grid($blockSize: null) {
+	@if $blockSize == null {width: 100%;}
+	@else {width: 100%/$blockSize;}
+}
+@mixin progress($progressStatus) {
+	background-size: 35px 35px;
+	background-color: $progressStatus;
+	background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .4) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%,transparent 75%, transparent);
+	background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .4) 25%, transparent 25%,transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%,transparent 75%, transparent);
+}
+@mixin boxShadow($shadowColor: $dark, $shadowSize: 4px, $shadowBlur: 0, $shadowOpacity: 0) {
+  -moz-box-shadow: 0 $shadowSize $shadowBlur rgba($shadowColor, $shadowOpacity);/*FF 3.5+*/
+  -webkit-box-shadow: 0 $shadowSize $shadowBlur rgba($shadowColor, $shadowOpacity);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+  box-shadow: 0 $shadowSize $shadowBlur rgba($shadowColor, $shadowOpacity);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+}
+@mixin txtShadow($txtShadowSize: 2px, $txtShadowBlur: 0, $txtShadowColor: $dark, $txtShadowOpacity: 0) {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=135, Color=#{rgba($txtShadowColor, $txtShadowOpacity)})";/*IE 8*/
+	text-shadow: $txtShadowSize $txtShadowSize $txtShadowBlur rgba($txtShadowColor, $txtShadowOpacity);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+}
+@mixin roundEven($rCorners) {
+  -webkit-border-radius: $rCorners;
+  -moz-border-radius: $rCorners;
+  -o-border-radius: $rCorners;
+  -ms-border-radius: $rCorners;
+  border-radius: $rCorners;
+}
+@mixin roundOdd($tLeft, $tRight, $bLeft, $bRight) {
+  -webkit-border-top-left-radius: $tLeft;
+  -webkit-border-top-right-radius: $tRight;
+  -webkit-border-bottom-left-radius: $bLeft;
+  -webkit-border-bottom-right-radius: $bRight;
+  -moz-border-top-left-radius: $tLeft;
+  -moz-border-top-right-radius: $tRight;
+  -moz-border-bottom-left-radius: $bLeft;
+  -moz-border-bottom-right-radius: $bRight;
+  -o-border-top-left-radius: $tLeft;
+  -o-border-top-right-radius: $tRight;
+  -o-border-bottom-left-radius: $bLeft;
+  -o-border-bottom-right-radius: $bRight;
+  -ms-border-top-left-radius: $tLeft;
+  -ms-border-top-right-radius: $tRight;
+  -ms-border-bottom-left-radius: $bLeft;
+  -ms-border-bottom-right-radius: $bRight;
+  border-top-left-radius: $tLeft;
+  border-top-right-radius: $tRight;
+  border-bottom-left-radius: $bLeft;
+  border-bottom-right-radius: $bRight;
+}
+@mixin trans($speed) {
+  -webkit-transition: $speed all;
+  -moz-transition: $speed all;
+  -o-transition: $speed all;
+  -ms-transition: $speed all;
+  transition: $speed all;
+}
+@mixin deg($rotate: 45) {
+  -webkit-transform: rotate($rotate+deg);
+  -moz-transform: rotate($rotate+deg);
+  -o-transform: rotate($rotate+deg);
+  -ms-transform: rotate($rotate+deg);
+  transform: rotate($rotate+deg);
+}

@@ -1,0 +1,43 @@
+$steps: 4;
+.progress {
+	height: $space/1.5;
+	@include roundEven(10px);
+	@include progress(#ddd);
+	margin: $space 0 $space*2;
+	.steps {
+		display: block;
+		position: relative;
+		.step {
+			display: inline-block;
+			width: 100%/$steps;
+			text-align: center;
+			margin: -15px 0 0 -5px;
+			/*
+			&::before {
+				width: 14%;
+				content: ' ';
+				position: absolute;
+				height: $space/1.5;
+				@include roundEven(10px);
+				@include progress($light);
+			}
+			*/
+			.num {
+				display: inline-block;
+				color: #666;
+				padding: 10px 15px;
+				@include roundEven(50%);
+				background: #eee;
+				border: 2px solid #fff;
+				&.prev {
+					color: #fff;
+					background: $light;
+				}
+				&.current {
+					color: #fff;
+					background: $primary;
+				}
+			}
+		}
+	}
+}

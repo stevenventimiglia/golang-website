@@ -1,0 +1,121 @@
+// ========================================
+//  FORMS
+// ========================================
+
+form {
+  font-size: 1.15em;
+  text-align: center;
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  label {
+    display: block;
+		position: relative;
+		color: $dark;
+    text-align: left;
+    padding: $space 0 0 $space/4;
+		white-space: nowrap;
+		&.req:after {
+			position: relative;
+			content: " *";
+		}
+  }
+	textarea,
+	input {
+		// Chrome/Opera/Safari
+		&::-webkit-input-placeholder {
+			font-size: 0.85em;
+			color: #ccc;
+			opacity: 1;
+		}
+		// Firefox 19+
+		&::-moz-placeholder {
+			font-size: 0.85em;
+			color: #ccc;
+			opacity: 1;
+		}
+		// IE 10+
+		&:-ms-input-placeholder {
+			font-size: 0.85em;
+			color: #ccc;
+			opacity: 1;
+		}
+		// Firefox 18-
+		&:-moz-placeholder {
+			font-size: 0.85em;
+			color: #ccc;
+			opacity: 1;
+		}
+	}
+	textarea {
+		resize: vertical;
+		height: auto;
+		padding: $space/2 $space/4;
+	}
+	input {
+		+ span {
+			font-size: .85em;
+		}
+	}
+	textarea,
+  input[type=text],
+  input[type=password],
+	input[type=email],
+	input[type=url] {
+    width: 100%;
+    border: 1px solid $primary;
+    margin: $space/2 0 0;
+    @include roundEven(6px);
+		-moz-box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1);/*FF 3.5+*/
+	  -webkit-box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+	  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+	}
+	input[type=text],
+  input[type=password],
+	input[type=email],
+	input[type=url] {
+    padding: 0 $space/4;
+    height: 2.5em;
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    display: inline-block;
+    border: 1px solid $primary;
+    margin: $space/2;
+  }
+	select {
+		width: 100%;
+		overflow: hidden;
+	}
+	button {
+		margin-top: $space/2;
+	}
+	.err {
+		label {
+			color: $red;
+		}
+		textarea,
+		input[type=text],
+		input[type=password],
+		input[type=email],
+		input[type=url] {
+			z-index: 9999;
+			border-color: $red;
+			margin-bottom: 0;
+		}
+		.msg {
+			color: #fff;
+			padding: $space $space/2 $space/2;
+			margin: -$space/2 0 $space/4;
+			background: $red;
+			@include roundOdd(0,0,6px,6px);
+			&.round {
+				@include roundEven(6px);
+				padding: $space/2;
+				margin: $space/4 0;
+			}
+		}
+	}
+}

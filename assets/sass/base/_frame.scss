@@ -1,0 +1,68 @@
+#mainContainer {
+	margin-left: 0;
+	background: #fff;
+}
+
+.wrapper {
+  width: 100%;
+	max-width: 980px;
+  margin: 0 auto;
+}
+
+.page {
+	background: #999;
+  // background: #999 url('#{$path-image}/bg_body.png');
+	overflow: hidden;
+	@include boxShadow($dark, 4px, 0, 0.25);
+	> .wrapper {
+		height: 100%;
+		min-height: 2400px;
+		background: #fff;
+	}
+}
+
+.content {
+  padding: $space;
+}
+
+.alt {
+	color: #999;
+	background: #eee;
+	h1, h2,
+	h3, h4 {
+		color: #666;
+	}
+}
+
+.nowrap {
+  white-space: nowrap
+}
+
+.group {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// ========================================
+//  BREAKPOINTS
+// ========================================
+
+@media screen and (min-width: 320px) {}
+
+@media screen and (min-width: 480px) {}
+
+@media screen and (min-width: 640px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 980px) {}
+
+@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 1280px) {}

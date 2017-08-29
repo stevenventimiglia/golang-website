@@ -1,0 +1,49 @@
+.pagination {
+	text-align: center;
+	ul {
+		display: inline-block;
+		white-space: nowrap;
+		li {
+			float: left;
+			margin-left: $space/4;
+			&:first-child {
+				margin: 0;
+			}
+			a {
+				display: block;
+				text-decoration: none;
+				padding: 2px 6px;
+				border: 1px solid #ddd;
+				background: #eee;
+				@include roundEven(4px);
+				&:link,
+				&:visited	{
+					color: #999;
+				}
+				&:hover,
+				&:visited:hover {
+					color: $gray;
+					border: 1px solid $primary;
+					background: $primary;
+				}
+				&.on {
+					color: $primary;
+					border: 1px solid $light;
+					background: $gray;
+				}
+				&.prev,
+				&.next {
+					float: left;
+					content: ' ';
+					font-weight: bold;
+				}
+				&.prev::before {
+					content: '\00ab';
+				}
+				&.next::after {
+					content: '\00bb';
+				}
+			}
+		}
+	}
+}

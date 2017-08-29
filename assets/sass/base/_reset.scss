@@ -1,0 +1,42 @@
+// ========================
+//  Reset
+// ========================
+
+h1, h2, h3, h4, h5, h6, p,
+a, em, img, q, strike, strong,
+sub, sup, tt, var, dl, dt, dd,
+ol, ul, li, fieldset, form, label, legend,
+table, tbody, tfoot, thead, tr, th, td,
+caption, article, aside, canvas,
+footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+footer, header, menu, nav,
+section, article, aside, {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
