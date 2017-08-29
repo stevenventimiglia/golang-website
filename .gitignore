@@ -1,0 +1,8 @@
+/tmp/*
+.DS_Store
+.sass-cache
+.codekit-cache
+config.codekit
+config.codekit3
+prepros.cfg
+prepros-6.config
